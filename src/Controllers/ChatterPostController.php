@@ -56,7 +56,7 @@ class ChatterPostController extends Controller
 			'body.min' => trans('chatter::alert.danger.reason.content_min'),
 		]);
 
-        Event::dispatch(new ChatterBeforeNewResponse($request, $validator));
+        Event::dispatch(new ChatterBeforeNewResponse($request, $validator)); // remove fire() with dispatch()
         if (function_exists('chatter_before_new_response')) {
             chatter_before_new_response($request, $validator);
         }
